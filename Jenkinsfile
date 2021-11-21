@@ -1,5 +1,5 @@
-node{
- 
+pipeline{
+ stages{
   stage('SCM'){
     echo 'Gathering code from version control'
     git branch : '${branch}', url: 'https://github.com/pbuczma/step3.git'
@@ -11,7 +11,7 @@ node{
            // label 'maven-label'
        } 
    } 
-   
+   steps{
     try{
       echo 'Building...'
       sh 'dotnet --version'
@@ -26,12 +26,17 @@ node{
     finally{
       //cleanup
     }
-    
+   }
   }
   stage('Test'){
+   steps{
     echo  'Testing...'
+   }
   }
   stage('Deploy'){
+   steps{
     echo 'Deploying...'
+   }
   }
+ }
 }
