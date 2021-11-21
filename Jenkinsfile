@@ -2,6 +2,11 @@ pipeline{
  agent none
  stages{
   stage('SCM'){
+   agent { 
+                docker { 
+                    image 'alpine'
+                } 
+            }
    steps{
     echo 'Gathering code from version control'
     git branch : '${branch}', url: 'https://github.com/pbuczma/step3.git'
