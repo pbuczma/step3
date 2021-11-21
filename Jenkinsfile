@@ -21,20 +21,20 @@ pipeline{
        } 
    } 
    steps{
-    try{
+    //try{
       echo 'Building...'
       sh 'dotnet --version'
       sh "dotnet build ConsoleApp1"
       echo 'Building New Feature'
       
-    }catch(ex){
+   // }catch(ex){
       echo  'Something went wrong'
       echo  ex.toString();
       currentBuild.result = 'FAILURE'
-    }
-    finally{
+   // }
+   // finally{
       //cleanup
-    }
+   // }
    }
   }
   stage('Test'){
