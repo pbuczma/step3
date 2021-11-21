@@ -5,6 +5,13 @@ node{
     git branch : '${branch}', url: 'https://github.com/pbuczma/step3.git'
   }
   stage('Build'){
+   agent { 
+       docker { 
+           image 'mcr.microsoft.com/dotnet/sdk'
+           // label 'maven-label'
+       } 
+   } 
+   
     try{
       echo 'Building...'
       sh 'dotnet --version'
