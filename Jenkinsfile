@@ -28,9 +28,9 @@ pipeline{
       echo 'Building New Feature'
       
    // }catch(ex){
-      echo  'Something went wrong'
-      echo  ex.toString();
-      currentBuild.result = 'FAILURE'
+      //echo  'Something went wrong'
+      //echo  ex.toString();
+      //currentBuild.result = 'FAILURE'
    // }
    // finally{
       //cleanup
