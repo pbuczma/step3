@@ -19,6 +19,9 @@ pipeline{
            image 'mcr.microsoft.com/dotnet/sdk'
            // label 'maven-label'
        } 
+   }
+   environment {
+      HOME = '/tmp'
    } 
    steps{
     //try{
