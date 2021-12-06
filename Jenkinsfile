@@ -24,6 +24,7 @@ pipeline{
     //try{
       echo 'Building...'
       sh 'dotnet --version'
+      sh 'dir'
       sh "dotnet build ConsoleApp1"
       echo 'Building New Feature'
       
