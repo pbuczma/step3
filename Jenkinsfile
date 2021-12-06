@@ -24,22 +24,22 @@ pipeline{
       HOME = '/tmp'
    }
    steps{
-    try{
-      echo 'Building...'
-      sh 'dotnet --version'
-      sh 'cd ConsoleApp1'
-      sh 'dotnet build  ConsoleApp1'
-      echo 'Building New Feature'
-
-    }catch(ex){
-      echo  'Something went wrong'
-      echo  ex.toString();
-      currentBuild.result = 'FAILURE'
-    }finally{
-      //cleanup
-    }
+        try{
+          echo 'Building...'
+          sh 'dotnet --version'
+          sh 'cd ConsoleApp1'
+          sh 'dotnet build  ConsoleApp1'
+          echo 'Building New Feature'
+          releasenotes()
+        }catch(ex){
+          echo  'Something went wrong'
+          echo  ex.toString();
+          currentBuild.result = 'FAILURE'
+        }
+        finally{
+          //cleanup
+        }
    }
-  }
   stage('Test'){
    steps{
     echo  'Testing...'
