@@ -3,6 +3,7 @@ import groovy.io.*;
 
 def dir = new File( pwd() );
 
+@NonCPS
 def call(Map config=[:]) {
     new File(dir.path + "/releasenotes.txt").withWriter('utf-8') { writer ->
 
