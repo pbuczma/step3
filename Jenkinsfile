@@ -28,7 +28,7 @@ pipeline{
       echo 'Building...'
       sh 'dotnet --version'
       sh 'cd ConsoleApp1'
-      sh 'dotnet build ConsoleApp1'
+      sh 'dotnet build  ConsoleApp1'
       echo 'Building New Feature'
       releasenotes()
       
