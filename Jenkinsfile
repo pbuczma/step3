@@ -40,6 +40,7 @@ pipeline{
           //cleanup
         }
    }
+  }
   stage('Test'){
    steps{
     echo  'Testing...'
