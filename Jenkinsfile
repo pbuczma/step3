@@ -24,6 +24,7 @@ pipeline{
       HOME = '/tmp'
    }
    steps{
+    step{
         try{
           echo 'Building...'
           sh 'dotnet --version'
@@ -39,6 +40,7 @@ pipeline{
         finally{
           //cleanup
         }
+    }
    }
   }
   stage('Test'){
