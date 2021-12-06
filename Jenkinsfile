@@ -30,7 +30,7 @@ pipeline{
       sh 'cd ConsoleApp1'
       sh "dotnet build ConsoleApp1"
       echo 'Building New Feature'
-      sh 'cd ..'
+      sh "cd .."
       releasenotes()
       
     }catch(ex){
