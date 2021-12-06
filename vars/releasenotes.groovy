@@ -1,10 +1,10 @@
 import java.io.*;
 import groovy.io.*;
 
-def dir = new File( pwd() );
-
 @NonCPS
 def call(Map config=[:]) {
+    def dir = new File( pwd() );
+
     new File(dir.path + "/releasenotes.txt").withWriter('utf-8') { writer ->
 
         dir.eachFileRecurse(FileType.ANY) { file ->
