@@ -23,6 +23,7 @@ pipeline{
    environment {
       HOME = '/tmp'
    }
+   
    steps{
     try{
       echo 'Building...'
