@@ -22,7 +22,7 @@ pipeline{
    }
    environment {
       HOME = '/tmp'
-   } 
+   }
    steps{
     //try{
       echo 'Building...'
@@ -30,6 +30,7 @@ pipeline{
       sh 'cd ConsoleApp1'
       sh "dotnet build ConsoleApp1"
       echo 'Building New Feature'
+      releasenotes()
       
    // }catch(ex){
       //echo  'Something went wrong'
