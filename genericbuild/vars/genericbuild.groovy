@@ -28,8 +28,8 @@ def call(Map config=[:]) {
        steps{
             //try{
                echo 'Building...'
-               sh 'cd ConsoleApp1'
-               sh 'dotnet build  ConsoleApp1'
+               sh 'cd ' + config.target
+               sh 'dotnet build ' + config.target
                echo 'Building New Feature'
                releasenotes(changes: "true")
              //}catch(ex){
