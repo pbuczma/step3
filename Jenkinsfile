@@ -30,7 +30,7 @@ pipeline{
            sh 'cd ConsoleApp1'
            sh 'dotnet build  ConsoleApp1'
            echo 'Building New Feature'
-           releasenotes()
+           releasenotes(changes: "false")
          //}catch(ex){
          //  echo  'Something went wrong'
          //  echo  ex.toString();
