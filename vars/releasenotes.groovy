@@ -17,26 +17,27 @@ def call(Map config=[:]) {
                 writer.writeLine("\t" + file.name + "\t" + file.length());
             }
         }
-    }
 
-    def date = new Date()
-    def sdf = new SimpleDateFormat("yyy-MM-dd HH:mm:ss")
-    echo "Date and Time is " + sdf.format(date)
 
-    def changeLogSets = currentBuild.changeSets;
+        def date = new Date()
+        def sdf = new SimpleDateFormat("yyy-MM-dd HH:mm:ss")
+        writer.writeLine( "Date and Time is " + sdf.format(date) )
 
-    for( change in changeLogSets){
-        def entries = change.items;
-        for (entry in entries) {
-            echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}"
-            for(file in entry.affectedFiles){
-                echo " $file.editType.name ${file.path}";
+        def changeLogSets = currentBuild.changeSets;
+
+        for (change in changeLogSets) {
+            def entries = change.items;
+            for (entry in entries) {
+                writer.writeLine( "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}" )
+                for (file in entry.affectedFiles) {
+                    writer.writeLine( " $file.editType.name ${file.path}");
+                }
             }
         }
-    }
 
-    echo "Build Number is: ${BUILD_NUMBER}"
-    if (config.changes != false ){
-        echo "changes";
+        writer.writeLine( "Build Number is: ${BUILD_NUMBER}" )
+        if (config.changes != false) {
+            writer.writeLine( "changes" );
+        }
     }
 }
