@@ -9,7 +9,7 @@ def call(Map config=[:]) {
                         image 'alpine'
                     }
                 }
-       step s{
+       steps{
         echo 'Gathering code from version control'
         git branch : '${branch}', url: 'https://github.com/pbuczma/step3.git'
 
@@ -25,7 +25,7 @@ def call(Map config=[:]) {
        environment {
           HOME = '/tmp'
        }
-       step s{
+       steps{
             //try{
                echo 'Building...'
                sh 'cd ConsoleApp1'
@@ -40,12 +40,12 @@ def call(Map config=[:]) {
        }
       }
       stage('Test'){
-       step s{
+       steps{
         echo  'Testing...'
        }
       }
       stage('Deploy'){
-       step s{
+       steps{
         echo 'Deploying...'
        }
       }
