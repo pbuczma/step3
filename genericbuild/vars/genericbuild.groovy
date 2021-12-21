@@ -29,8 +29,8 @@ def call(Map config=[:]) {
        }
        steps{
             //try{
-               sh 'cd'
-               sh 'dir'
+               sh 'pwd'
+               sh 'ls -1'
                sh 'uname -a'
                echo 'Building...'
                sh 'cd ' + config.target
