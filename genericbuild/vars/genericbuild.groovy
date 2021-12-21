@@ -12,7 +12,9 @@ def call(Map config=[:]) {
        steps{
         echo 'Gathering code from version control'
         git branch : '${branch}', url: 'https://github.com/pbuczma/step3.git'
-
+        sh 'pwd'
+        sh 'ls -1'
+        sh 'uname -a'
        }
       }
       stage('Build'){
@@ -27,6 +29,9 @@ def call(Map config=[:]) {
        }
        steps{
             //try{
+               sh 'cd'
+               sh 'dir /B'
+               sh 'ver'
                echo 'Building...'
                sh 'cd ' + config.target
                sh 'dotnet build ' + config.target
