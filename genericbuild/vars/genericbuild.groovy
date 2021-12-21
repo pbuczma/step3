@@ -15,6 +15,7 @@ def call(Map config=[:]) {
         sh 'pwd'
         sh 'ls -1'
         sh 'uname -a'
+        sh 'touch newfile.txt'
        }
       }
       stage('Build'){
