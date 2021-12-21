@@ -31,7 +31,7 @@ def call(Map config=[:]) {
             //try{
                sh 'cd'
                sh 'dir'
-               sh 'ver'
+               sh 'uname -a'
                echo 'Building...'
                sh 'cd ' + config.target
                sh 'dotnet build ' + config.target
