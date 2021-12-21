@@ -30,7 +30,7 @@ def call(Map config=[:]) {
        steps{
             //try{
                sh 'cd'
-               sh 'dir /B'
+               sh 'dir'
                sh 'ver'
                echo 'Building...'
                sh 'cd ' + config.target
